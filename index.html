@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stadtwerke & Kommunen Kontaktdaten</title>
+    <title>Stadtwerke, Bauämter & Katasterämter Kontaktdaten</title>
     <style>
         * {
             margin: 0;
@@ -12,21 +12,19 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #fafafa;
             color: #09090b;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
         }
         
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -46,7 +44,6 @@
             font-weight: 400;
         }
         
-        /* Controls */
         .controls {
             display: flex;
             gap: 0.5rem;
@@ -82,7 +79,6 @@
             border-color: #18181b;
         }
         
-        /* Section */
         .section {
             margin-bottom: 3rem;
         }
@@ -115,22 +111,21 @@
         /* Card Grid */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 1.5rem;
         }
         
-        /* Card */
         .card {
             background: #ffffff;
             border: 1px solid #e4e4e7;
             border-radius: 0.5rem;
             padding: 1.5rem;
             transition: all 0.2s ease;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         }
         
         .card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border-color: #d4d4d8;
         }
         
@@ -143,16 +138,12 @@
         }
         
         .card-info {
-            margin-bottom: 0.875rem;
-        }
-        
-        .card-info:last-child {
-            margin-bottom: 0;
+            margin-bottom: 0.75rem;
         }
         
         .card-label {
-            font-size: 0.75rem;
-            font-weight: 500;
+            font-size: 0.7rem;
+            font-weight: 600;
             color: #71717a;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -163,6 +154,7 @@
         .card-value {
             font-size: 0.875rem;
             color: #09090b;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
         }
         
         .card-value a {
@@ -172,43 +164,69 @@
         }
         
         .card-value a:hover {
-            color: #71717a;
+            color: #3b82f6;
         }
         
-        /* Table */
+        /* Table - Professional Software Look */
         .table-wrapper {
             background: #ffffff;
             border: 1px solid #e4e4e7;
             border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
+            table-layout: fixed;
         }
         
         thead {
-            background: #fafafa;
-            border-bottom: 1px solid #e4e4e7;
+            background: #18181b;
+            color: #fafafa;
         }
         
         th {
-            padding: 0.75rem 1rem;
+            padding: 0.875rem 1rem;
             text-align: left;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #52525b;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            border-right: 1px solid #27272a;
         }
         
+        th:last-child {
+            border-right: none;
+        }
+        
+        /* Fixed column widths for uniform look */
+        th:nth-child(1), td:nth-child(1) { width: 16%; } /* Name */
+        th:nth-child(2), td:nth-child(2) { width: 12%; } /* Stadt */
+        th:nth-child(3), td:nth-child(3) { width: 13%; } /* Telefon */
+        th:nth-child(4), td:nth-child(4) { width: 20%; } /* Email */
+        th:nth-child(5), td:nth-child(5) { width: 15%; } /* Website */
+        th:nth-child(6), td:nth-child(6) { width: 24%; } /* Ansprechpartner */
+        
         td {
-            padding: 1rem;
-            font-size: 0.875rem;
+            padding: 0.875rem 1rem;
+            font-size: 0.8125rem;
             color: #09090b;
             border-bottom: 1px solid #f4f4f5;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        td:nth-child(1) {
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        tbody tr {
+            transition: background-color 0.1s ease;
         }
         
         tbody tr:hover {
@@ -220,16 +238,16 @@
         }
         
         table a {
-            color: #09090b;
+            color: #3b82f6;
             text-decoration: none;
             transition: color 0.15s ease;
         }
         
         table a:hover {
-            color: #71717a;
+            color: #2563eb;
+            text-decoration: underline;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 2rem 1rem;
@@ -237,10 +255,6 @@
             
             h1 {
                 font-size: 1.875rem;
-            }
-            
-            .section-title {
-                font-size: 1.25rem;
             }
             
             .card-grid {
@@ -252,11 +266,7 @@
             }
             
             table {
-                font-size: 0.8125rem;
-            }
-            
-            th, td {
-                padding: 0.75rem;
+                min-width: 1000px;
             }
         }
         
@@ -268,8 +278,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>Stadtwerke & Kommunen Kontaktdaten</h1>
-            <p class="subtitle">Professionelle Kontaktdatenbank für den deutschen Energiesektor</p>
+            <h1>Stadtwerke, Bauämter & Katasterämter</h1>
+            <p class="subtitle">Professionelle Kontaktdatenbank mit direkten Ansprechpartnern</p>
         </header>
         
         <div class="controls">
@@ -289,10 +299,18 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Kommunen</h2>
-                    <span class="section-badge" id="kommunenCount"></span>
+                    <h2 class="section-title">Bauämter</h2>
+                    <span class="section-badge" id="bauaemterCount"></span>
                 </div>
-                <div class="card-grid" id="kommunenCards"></div>
+                <div class="card-grid" id="bauaemterCards"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Katasterämter</h2>
+                    <span class="section-badge" id="katasterCount"></span>
+                </div>
+                <div class="card-grid" id="katasterCards"></div>
             </div>
         </div>
         
@@ -307,17 +325,26 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Kommunen</h2>
-                    <span class="section-badge" id="kommunenCountTable"></span>
+                    <h2 class="section-title">Bauämter</h2>
+                    <span class="section-badge" id="bauaemterCountTable"></span>
                 </div>
-                <div class="table-wrapper" id="kommunenTable"></div>
+                <div class="table-wrapper" id="bauaemterTable"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Katasterämter</h2>
+                    <span class="section-badge" id="katasterCountTable"></span>
+                </div>
+                <div class="table-wrapper" id="katasterTable"></div>
             </div>
         </div>
     </div>
     
     <script>
         let stadtwerke = [];
-        let kommunen = [];
+        let bauaemter = [];
+        let kataster = [];
         
         async function loadData() {
             const response = await fetch('data.csv');
@@ -336,42 +363,29 @@
             });
             
             stadtwerke = allData.filter(e => e.Typ === 'Stadtwerke');
-            kommunen = allData.filter(e => e.Typ === 'Kommune');
+            bauaemter = allData.filter(e => e.Typ === 'Bauamt');
+            kataster = allData.filter(e => e.Typ === 'Katasteramt');
             
             renderCardView();
             renderTableView();
         }
         
         function renderCardView() {
+            // Stadtwerke
             document.getElementById('stadtwerkeCount').textContent = stadtwerke.length;
-            document.getElementById('stadtwerkeCards').innerHTML = stadtwerke.map(entry => `
-                <div class="card">
-                    <h3 class="card-title">${entry.Name}</h3>
-                    <div class="card-info">
-                        <span class="card-label">Adresse</span>
-                        <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
-                    </div>
-                    <div class="card-info">
-                        <span class="card-label">Telefon</span>
-                        <div class="card-value"><a href="tel:${entry.Telefon}">${entry.Telefon}</a></div>
-                    </div>
-                    <div class="card-info">
-                        <span class="card-label">Email</span>
-                        <div class="card-value"><a href="mailto:${entry.Email}">${entry.Email}</a></div>
-                    </div>
-                    <div class="card-info">
-                        <span class="card-label">Website</span>
-                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
-                    </div>
-                    <div class="card-info">
-                        <span class="card-label">Geschäftsführer</span>
-                        <div class="card-value">${entry.Geschäftsführer}</div>
-                    </div>
-                </div>
-            `).join('');
+            document.getElementById('stadtwerkeCards').innerHTML = stadtwerke.map(entry => createCard(entry)).join('');
             
-            document.getElementById('kommunenCount').textContent = kommunen.length;
-            document.getElementById('kommunenCards').innerHTML = kommunen.map(entry => `
+            // Bauämter
+            document.getElementById('bauaemterCount').textContent = bauaemter.length;
+            document.getElementById('bauaemterCards').innerHTML = bauaemter.map(entry => createCard(entry)).join('');
+            
+            // Katasterämter
+            document.getElementById('katasterCount').textContent = kataster.length;
+            document.getElementById('katasterCards').innerHTML = kataster.map(entry => createCard(entry)).join('');
+        }
+        
+        function createCard(entry) {
+            return `
                 <div class="card">
                     <h3 class="card-title">${entry.Name}</h3>
                     <div class="card-info">
@@ -391,19 +405,22 @@
                         <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Geschäftsführer</span>
-                        <div class="card-value">${entry.Geschäftsführer}</div>
+                        <span class="card-label">Ansprechpartner</span>
+                        <div class="card-value">${entry.Ansprechpartner}</div>
                     </div>
                 </div>
-            `).join('');
+            `;
         }
         
         function renderTableView() {
             document.getElementById('stadtwerkeCountTable').textContent = stadtwerke.length;
             document.getElementById('stadtwerkeTable').innerHTML = createTable(stadtwerke);
             
-            document.getElementById('kommunenCountTable').textContent = kommunen.length;
-            document.getElementById('kommunenTable').innerHTML = createTable(kommunen);
+            document.getElementById('bauaemterCountTable').textContent = bauaemter.length;
+            document.getElementById('bauaemterTable').innerHTML = createTable(bauaemter);
+            
+            document.getElementById('katasterCountTable').textContent = kataster.length;
+            document.getElementById('katasterTable').innerHTML = createTable(kataster);
         }
         
         function createTable(data) {
@@ -416,18 +433,18 @@
                             <th>Telefon</th>
                             <th>Email</th>
                             <th>Website</th>
-                            <th>Geschäftsführer</th>
+                            <th>Ansprechpartner</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${data.map(entry => `
                             <tr>
-                                <td style="font-weight: 600;">${entry.Name}</td>
+                                <td>${entry.Name}</td>
                                 <td>${entry.PLZ} ${entry.Stadt}</td>
                                 <td><a href="tel:${entry.Telefon}">${entry.Telefon}</a></td>
                                 <td><a href="mailto:${entry.Email}">${entry.Email}</a></td>
                                 <td><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></td>
-                                <td>${entry.Geschäftsführer}</td>
+                                <td>${entry.Ansprechpartner}</td>
                             </tr>
                         `).join('')}
                     </tbody>
