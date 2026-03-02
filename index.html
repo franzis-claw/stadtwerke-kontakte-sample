@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stadtwerke, Bauämter & Katasterämter Kontaktdaten</title>
+    <title>Utilities, Construction Offices & Cadastre Offices Contact Database</title>
     <style>
         * {
             margin: 0;
@@ -278,20 +278,20 @@
 <body>
     <div class="container">
         <header>
-            <h1>Stadtwerke, Bauämter & Katasterämter</h1>
-            <p class="subtitle">Professionelle Kontaktdatenbank mit direkten Ansprechpartnern</p>
+            <h1>Utilities, Construction Offices & Cadastre Offices</h1>
+            <p class="subtitle">Professional contact database with direct decision-maker contacts</p>
         </header>
         
         <div class="controls">
-            <button class="btn active" id="cardViewBtn">Kartenansicht</button>
-            <button class="btn" id="tableViewBtn">Tabellenansicht</button>
+            <button class="btn active" id="cardViewBtn">Card View</button>
+            <button class="btn" id="tableViewBtn">Table View</button>
             <button class="btn" id="downloadBtn">CSV Download</button>
         </div>
         
         <div id="cardView">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Stadtwerke</h2>
+                    <h2 class="section-title">Utilities</h2>
                     <span class="section-badge" id="stadtwerkeCount"></span>
                 </div>
                 <div class="card-grid" id="stadtwerkeCards"></div>
@@ -299,7 +299,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Bauämter</h2>
+                    <h2 class="section-title">Construction Offices</h2>
                     <span class="section-badge" id="bauaemterCount"></span>
                 </div>
                 <div class="card-grid" id="bauaemterCards"></div>
@@ -307,7 +307,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Katasterämter</h2>
+                    <h2 class="section-title">Cadastre Offices</h2>
                     <span class="section-badge" id="katasterCount"></span>
                 </div>
                 <div class="card-grid" id="katasterCards"></div>
@@ -317,7 +317,7 @@
         <div id="tableView" class="hidden">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Stadtwerke</h2>
+                    <h2 class="section-title">Utilities</h2>
                     <span class="section-badge" id="stadtwerkeCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="stadtwerkeTable"></div>
@@ -325,7 +325,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Bauämter</h2>
+                    <h2 class="section-title">Construction Offices</h2>
                     <span class="section-badge" id="bauaemterCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="bauaemterTable"></div>
@@ -333,7 +333,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Katasterämter</h2>
+                    <h2 class="section-title">Cadastre Offices</h2>
                     <span class="section-badge" id="katasterCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="katasterTable"></div>
@@ -389,11 +389,11 @@
                 <div class="card">
                     <h3 class="card-title">${entry.Name}</h3>
                     <div class="card-info">
-                        <span class="card-label">Adresse</span>
+                        <span class="card-label">Address</span>
                         <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Telefon</span>
+                        <span class="card-label">Phone</span>
                         <div class="card-value"><a href="tel:${entry.Telefon}">${entry.Telefon}</a></div>
                     </div>
                     <div class="card-info">
@@ -405,7 +405,7 @@
                         <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Ansprechpartner</span>
+                        <span class="card-label">Contact Person</span>
                         <div class="card-value">${entry.Ansprechpartner}</div>
                     </div>
                 </div>
@@ -429,11 +429,11 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Stadt</th>
-                            <th>Telefon</th>
+                            <th>City</th>
+                            <th>Phone</th>
                             <th>Email</th>
                             <th>Website</th>
-                            <th>Ansprechpartner</th>
+                            <th>Contact Person</th>
                         </tr>
                     </thead>
                     <tbody>
