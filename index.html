@@ -12,168 +12,176 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: #fafafa;
+            color: #09090b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 3rem 1.5rem;
         }
         
+        /* Header */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.25rem;
             font-weight: 700;
-            color: #000;
+            letter-spacing: -0.025em;
+            color: #09090b;
+            margin-bottom: 0.5rem;
         }
         
         .subtitle {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1rem;
+            color: #71717a;
+            font-weight: 400;
         }
         
+        /* Controls */
         .controls {
             display: flex;
-            gap: 15px;
+            gap: 0.5rem;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
         
         .btn {
-            padding: 12px 24px;
-            border: 2px solid #000;
-            background: white;
-            color: #000;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            border: 1px solid #e4e4e7;
+            background: #ffffff;
+            color: #09090b;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            border-radius: 4px;
+            transition: all 0.15s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
         
         .btn:hover {
-            background: #000;
-            color: white;
+            background: #f4f4f5;
+            border-color: #d4d4d8;
         }
         
         .btn.active {
-            background: #000;
-            color: white;
+            background: #18181b;
+            color: #ffffff;
+            border-color: #18181b;
         }
         
-        /* Section Headers */
+        /* Section */
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
         }
         
         .section-header {
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            color: #09090b;
         }
         
-        .section-count {
-            font-size: 1rem;
-            color: #666;
-            margin-left: 12px;
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 9999px;
+            background: #f4f4f5;
+            color: #52525b;
         }
         
-        /* Card View */
+        /* Card Grid */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
         }
         
+        /* Card */
         .card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 24px;
-            transition: all 0.3s;
+            background: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
         }
         
         .card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-        
-        .card-header {
-            border-bottom: 2px solid #000;
-            padding-bottom: 12px;
-            margin-bottom: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            border-color: #d4d4d8;
         }
         
         .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-        
-        .card-type {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #f0f0f0;
-            color: #333;
-            font-size: 0.85rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #09090b;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
         }
         
         .card-info {
-            margin-bottom: 12px;
+            margin-bottom: 0.875rem;
+        }
+        
+        .card-info:last-child {
+            margin-bottom: 0;
         }
         
         .card-label {
-            font-weight: 600;
-            color: #666;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
             display: block;
-            margin-bottom: 4px;
         }
         
         .card-value {
-            color: #1a1a1a;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
+            color: #09090b;
         }
         
         .card-value a {
-            color: #000;
+            color: #09090b;
             text-decoration: none;
-            border-bottom: 1px solid #ccc;
-            transition: border-color 0.2s;
+            transition: color 0.15s ease;
         }
         
         .card-value a:hover {
-            border-bottom-color: #000;
+            color: #71717a;
         }
         
-        /* Table View */
-        .table-container {
-            background: white;
-            border-radius: 8px;
+        /* Table */
+        .table-wrapper {
+            background: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-radius: 0.5rem;
             overflow: hidden;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
         }
         
         table {
@@ -182,22 +190,25 @@
         }
         
         thead {
-            background: #000;
-            color: white;
+            background: #fafafa;
+            border-bottom: 1px solid #e4e4e7;
         }
         
         th {
-            padding: 16px;
+            padding: 0.75rem 1rem;
             text-align: left;
+            font-size: 0.75rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            color: #52525b;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
         }
         
         td {
-            padding: 16px;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #09090b;
+            border-bottom: 1px solid #f4f4f5;
         }
         
         tbody tr:hover {
@@ -208,51 +219,44 @@
             border-bottom: none;
         }
         
-        .type-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            background: #f0f0f0;
-            color: #333;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-        
         table a {
-            color: #000;
+            color: #09090b;
             text-decoration: none;
-            border-bottom: 1px solid #ccc;
+            transition: color 0.15s ease;
         }
         
         table a:hover {
-            border-bottom-color: #000;
+            color: #71717a;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 1.875rem;
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
             
             .card-grid {
                 grid-template-columns: 1fr;
             }
             
-            .table-container {
+            .table-wrapper {
                 overflow-x: auto;
             }
             
             table {
-                font-size: 0.9rem;
+                font-size: 0.8125rem;
             }
             
             th, td {
-                padding: 12px;
+                padding: 0.75rem;
             }
         }
         
@@ -277,14 +281,16 @@
         <div id="cardView">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Stadtwerke <span class="section-count" id="stadtwerkeCount"></span></h2>
+                    <h2 class="section-title">Stadtwerke</h2>
+                    <span class="section-badge" id="stadtwerkeCount"></span>
                 </div>
                 <div class="card-grid" id="stadtwerkeCards"></div>
             </div>
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Kommunen <span class="section-count" id="kommunenCount"></span></h2>
+                    <h2 class="section-title">Kommunen</h2>
+                    <span class="section-badge" id="kommunenCount"></span>
                 </div>
                 <div class="card-grid" id="kommunenCards"></div>
             </div>
@@ -293,16 +299,18 @@
         <div id="tableView" class="hidden">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Stadtwerke <span class="section-count" id="stadtwerkeCountTable"></span></h2>
+                    <h2 class="section-title">Stadtwerke</h2>
+                    <span class="section-badge" id="stadtwerkeCountTable"></span>
                 </div>
-                <div class="table-container" id="stadtwerkeTable"></div>
+                <div class="table-wrapper" id="stadtwerkeTable"></div>
             </div>
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Kommunen <span class="section-count" id="kommunenCountTable"></span></h2>
+                    <h2 class="section-title">Kommunen</h2>
+                    <span class="section-badge" id="kommunenCountTable"></span>
                 </div>
-                <div class="table-container" id="kommunenTable"></div>
+                <div class="table-wrapper" id="kommunenTable"></div>
             </div>
         </div>
     </div>
@@ -327,7 +335,6 @@
                 return entry;
             });
             
-            // Separate by type
             stadtwerke = allData.filter(e => e.Typ === 'Stadtwerke');
             kommunen = allData.filter(e => e.Typ === 'Kommune');
             
@@ -336,13 +343,10 @@
         }
         
         function renderCardView() {
-            // Stadtwerke cards
-            document.getElementById('stadtwerkeCount').textContent = `(${stadtwerke.length})`;
+            document.getElementById('stadtwerkeCount').textContent = stadtwerke.length;
             document.getElementById('stadtwerkeCards').innerHTML = stadtwerke.map(entry => `
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">${entry.Name}</h3>
-                    </div>
+                    <h3 class="card-title">${entry.Name}</h3>
                     <div class="card-info">
                         <span class="card-label">Adresse</span>
                         <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
@@ -357,7 +361,7 @@
                     </div>
                     <div class="card-info">
                         <span class="card-label">Website</span>
-                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website}</a></div>
+                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
                     </div>
                     <div class="card-info">
                         <span class="card-label">Geschäftsführer</span>
@@ -366,13 +370,10 @@
                 </div>
             `).join('');
             
-            // Kommunen cards
-            document.getElementById('kommunenCount').textContent = `(${kommunen.length})`;
+            document.getElementById('kommunenCount').textContent = kommunen.length;
             document.getElementById('kommunenCards').innerHTML = kommunen.map(entry => `
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">${entry.Name}</h3>
-                    </div>
+                    <h3 class="card-title">${entry.Name}</h3>
                     <div class="card-info">
                         <span class="card-label">Adresse</span>
                         <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
@@ -387,7 +388,7 @@
                     </div>
                     <div class="card-info">
                         <span class="card-label">Website</span>
-                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website}</a></div>
+                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
                     </div>
                     <div class="card-info">
                         <span class="card-label">Geschäftsführer</span>
@@ -398,12 +399,10 @@
         }
         
         function renderTableView() {
-            // Stadtwerke table
-            document.getElementById('stadtwerkeCountTable').textContent = `(${stadtwerke.length})`;
+            document.getElementById('stadtwerkeCountTable').textContent = stadtwerke.length;
             document.getElementById('stadtwerkeTable').innerHTML = createTable(stadtwerke);
             
-            // Kommunen table
-            document.getElementById('kommunenCountTable').textContent = `(${kommunen.length})`;
+            document.getElementById('kommunenCountTable').textContent = kommunen.length;
             document.getElementById('kommunenTable').innerHTML = createTable(kommunen);
         }
         
@@ -423,11 +422,11 @@
                     <tbody>
                         ${data.map(entry => `
                             <tr>
-                                <td><strong>${entry.Name}</strong></td>
+                                <td style="font-weight: 600;">${entry.Name}</td>
                                 <td>${entry.PLZ} ${entry.Stadt}</td>
                                 <td><a href="tel:${entry.Telefon}">${entry.Telefon}</a></td>
                                 <td><a href="mailto:${entry.Email}">${entry.Email}</a></td>
-                                <td><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://www.', '')}</a></td>
+                                <td><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></td>
                                 <td>${entry.Geschäftsführer}</td>
                             </tr>
                         `).join('')}
@@ -436,7 +435,6 @@
             `;
         }
         
-        // View Switcher
         document.getElementById('cardViewBtn').addEventListener('click', () => {
             document.getElementById('cardView').classList.remove('hidden');
             document.getElementById('tableView').classList.add('hidden');
@@ -451,12 +449,10 @@
             document.getElementById('tableViewBtn').classList.add('active');
         });
         
-        // CSV Download
         document.getElementById('downloadBtn').addEventListener('click', () => {
             window.location.href = 'data.csv';
         });
         
-        // Load data on page load
         loadData();
     </script>
 </body>
