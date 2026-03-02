@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utilities, Construction Offices & Cadastre Offices Contact Database</title>
+    <title>Stadtwerke, Bauämter & Katasterämter Kontaktdatenbank</title>
     <style>
         * {
             margin: 0;
@@ -279,19 +279,19 @@
     <div class="container">
         <header>
             <h1>Utilities, Construction Offices & Cadastre Offices</h1>
-            <p class="subtitle">Professional contact database with direct decision-maker contacts</p>
+            <p class="subtitle">Professionelle Kontaktdatenbank mit verifizierten Behördenkontakten</p>
         </header>
         
         <div class="controls">
-            <button class="btn active" id="cardViewBtn">Card View</button>
-            <button class="btn" id="tableViewBtn">Table View</button>
+            <button class="btn active" id="cardViewBtn">Kartenansicht</button>
+            <button class="btn" id="tableViewBtn">Tabellenansicht</button>
             <button class="btn" id="downloadBtn">CSV Download</button>
         </div>
         
         <div id="cardView">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Utilities</h2>
+                    <h2 class="section-title">Stadtwerke</h2>
                     <span class="section-badge" id="stadtwerkeCount"></span>
                 </div>
                 <div class="card-grid" id="stadtwerkeCards"></div>
@@ -299,7 +299,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Construction Offices</h2>
+                    <h2 class="section-title">Bauämter</h2>
                     <span class="section-badge" id="bauaemterCount"></span>
                 </div>
                 <div class="card-grid" id="bauaemterCards"></div>
@@ -307,7 +307,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Cadastre Offices</h2>
+                    <h2 class="section-title">Katasterämter</h2>
                     <span class="section-badge" id="katasterCount"></span>
                 </div>
                 <div class="card-grid" id="katasterCards"></div>
@@ -317,7 +317,7 @@
         <div id="tableView" class="hidden">
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Utilities</h2>
+                    <h2 class="section-title">Stadtwerke</h2>
                     <span class="section-badge" id="stadtwerkeCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="stadtwerkeTable"></div>
@@ -325,7 +325,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Construction Offices</h2>
+                    <h2 class="section-title">Bauämter</h2>
                     <span class="section-badge" id="bauaemterCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="bauaemterTable"></div>
@@ -333,7 +333,7 @@
             
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Cadastre Offices</h2>
+                    <h2 class="section-title">Katasterämter</h2>
                     <span class="section-badge" id="katasterCountTable"></span>
                 </div>
                 <div class="table-wrapper" id="katasterTable"></div>
@@ -389,15 +389,15 @@
                 <div class="card">
                     <h3 class="card-title">${entry.Name}</h3>
                     <div class="card-info">
-                        <span class="card-label">Address</span>
+                        <span class="card-label">Adresse</span>
                         <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Phone</span>
+                        <span class="card-label">Telefon</span>
                         <div class="card-value"><a href="tel:${entry.Telefon}">${entry.Telefon}</a></div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Email</span>
+                        <span class="card-label">E-Mail</span>
                         <div class="card-value"><a href="mailto:${entry.Email}">${entry.Email}</a></div>
                     </div>
                     <div class="card-info">
@@ -405,7 +405,7 @@
                         <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://', '').replace('www.', '')}</a></div>
                     </div>
                     <div class="card-info">
-                        <span class="card-label">Contact Person</span>
+                        <span class="card-label">Ansprechpartner</span>
                         <div class="card-value">${entry.Ansprechpartner}</div>
                     </div>
                 </div>
@@ -429,11 +429,11 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>City</th>
-                            <th>Phone</th>
-                            <th>Email</th>
+                            <th>Stadt</th>
+                            <th>Telefon</th>
+                            <th>E-Mail</th>
                             <th>Website</th>
-                            <th>Contact Person</th>
+                            <th>Ansprechpartner</th>
                         </tr>
                     </thead>
                     <tbody>
