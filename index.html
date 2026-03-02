@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stadtwerke & Kommunen Kontaktdaten - Sample</title>
+    <title>Stadtwerke & Kommunen Kontaktdaten</title>
     <style>
         * {
             margin: 0;
@@ -13,182 +13,144 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f5f5;
             min-height: 100vh;
             padding: 40px 20px;
+            color: #1a1a1a;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
         header {
             text-align: center;
-            color: white;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: 700;
+            color: #000;
         }
         
         .subtitle {
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: #666;
         }
         
-        .stats {
+        .controls {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-top: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
         
-        .stat-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid #000;
+            background: white;
+            color: #000;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            border-radius: 4px;
         }
         
-        .cards-grid {
+        .btn:hover {
+            background: #000;
+            color: white;
+        }
+        
+        .btn.active {
+            background: #000;
+            color: white;
+        }
+        
+        /* Card View */
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 24px;
             margin-bottom: 40px;
         }
         
         .card {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s;
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
         
         .card-header {
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
         }
         
-        .company-name {
-            font-size: 1.5rem;
+        .card-title {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 5px;
+            color: #000;
+            margin-bottom: 4px;
         }
         
-        .location {
-            color: #718096;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .info-section {
-            margin: 15px 0;
-        }
-        
-        .info-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #a0aec0;
+        .card-type {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f0f0f0;
+            color: #333;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
-        .info-value {
-            color: #2d3748;
+        .card-info {
+            margin-bottom: 12px;
+        }
+        
+        .card-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .card-value {
+            color: #1a1a1a;
             font-size: 0.95rem;
         }
         
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        
-        .service-badge {
-            background: #edf2f7;
-            color: #4a5568;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .contact-box {
-            background: #f7fafc;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .contact-person {
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 3px;
-        }
-        
-        .contact-role {
-            color: #667eea;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-        
-        .contact-detail {
-            color: #4a5568;
-            font-size: 0.9rem;
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .contact-detail a {
-            color: #667eea;
+        .card-value a {
+            color: #000;
             text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            transition: border-color 0.2s;
         }
         
-        .contact-detail a:hover {
-            text-decoration: underline;
+        .card-value a:hover {
+            border-bottom-color: #000;
         }
         
-        .website-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        
-        .website-link:hover {
-            background: #5568d3;
-        }
-        
-        .table-view {
+        /* Table View */
+        .table-container {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow-x: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
         
         table {
@@ -196,10 +158,13 @@
             border-collapse: collapse;
         }
         
-        th {
-            background: #667eea;
+        thead {
+            background: #000;
             color: white;
-            padding: 15px;
+        }
+        
+        th {
+            padding: 16px;
             text-align: left;
             font-weight: 600;
             font-size: 0.9rem;
@@ -208,299 +173,193 @@
         }
         
         td {
-            padding: 15px;
-            border-bottom: 1px solid #e2e8f0;
-            color: #2d3748;
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
         }
         
-        tr:hover {
-            background: #f7fafc;
+        tbody tr:hover {
+            background: #fafafa;
         }
         
-        .view-toggle {
-            text-align: center;
-            margin-bottom: 30px;
+        tbody tr:last-child td {
+            border-bottom: none;
         }
         
-        .toggle-btn {
-            background: white;
-            color: #667eea;
-            border: 2px solid white;
-            padding: 12px 30px;
-            margin: 0 10px;
-            border-radius: 25px;
-            cursor: pointer;
+        .type-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f0f0f0;
+            color: #333;
+            font-size: 0.8rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
         
-        .toggle-btn.active {
-            background: #667eea;
-            color: white;
+        table a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        table a:hover {
+            border-bottom-color: #000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-container {
+                overflow-x: auto;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 12px;
+            }
         }
         
         .hidden {
             display: none;
-        }
-        
-        .icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏛️ Stadtwerke & Kommunen</h1>
-            <p class="subtitle">Kontaktdaten deutscher Versorgungsunternehmen</p>
-            <div class="stats">
-                <div class="stat-badge">📊 5 Sample Einträge</div>
-                <div class="stat-badge">📧 Vollständige Kontaktdaten</div>
-                <div class="stat-badge">🌐 Verifizierte Websites</div>
-            </div>
+            <h1>Stadtwerke & Kommunen Kontaktdaten</h1>
+            <p class="subtitle">Professionelle Kontaktdatenbank für den deutschen Energiesektor</p>
         </header>
         
-        <div class="view-toggle">
-            <button class="toggle-btn active" onclick="showView('cards')">Kachel-Ansicht</button>
-            <button class="toggle-btn" onclick="showView('table')">Tabellen-Ansicht</button>
+        <div class="controls">
+            <button class="btn active" id="cardViewBtn">Kartenansicht</button>
+            <button class="btn" id="tableViewBtn">Tabellenansicht</button>
+            <button class="btn" id="downloadBtn">CSV Download</button>
         </div>
         
-        <div id="cards-view" class="cards-grid">
-            <!-- Stadtwerke Aachen -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="company-name">Stadtwerke Aachen</div>
-                    <div class="location">📍 Aachen, Deutschland</div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-label">Services</div>
-                    <div class="services">
-                        <span class="service-badge">⚡ Strom</span>
-                        <span class="service-badge">🔥 Gas</span>
-                        <span class="service-badge">💧 Wasser</span>
-                        <span class="service-badge">🌡️ Fernwärme</span>
-                        <span class="service-badge">🚌 ÖPNV</span>
-                    </div>
-                </div>
-                
-                <div class="contact-box">
-                    <div class="contact-person">Christian Becker</div>
-                    <div class="contact-role">Geschäftsführer</div>
-                    <div class="contact-detail">📧 <a href="mailto:kundenservice@stawag.de">kundenservice@stawag.de</a></div>
-                    <div class="contact-detail">📞 0241 181-1222</div>
-                </div>
-                
-                <a href="https://www.stawag.de" target="_blank" class="website-link">🌐 Website besuchen</a>
-            </div>
-            
-            <!-- Stadtwerke Augsburg -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="company-name">Stadtwerke Augsburg</div>
-                    <div class="location">📍 Augsburg, Deutschland</div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-label">Services</div>
-                    <div class="services">
-                        <span class="service-badge">⚡ Strom</span>
-                        <span class="service-badge">🔥 Gas</span>
-                        <span class="service-badge">💧 Wasser</span>
-                        <span class="service-badge">🌡️ Fernwärme</span>
-                        <span class="service-badge">🚌 ÖPNV</span>
-                    </div>
-                </div>
-                
-                <div class="contact-box">
-                    <div class="contact-person">Rainer Nauerz</div>
-                    <div class="contact-role">Geschäftsführer</div>
-                    <div class="contact-detail">📧 <a href="mailto:kundenservice@sw-augsburg.de">kundenservice@sw-augsburg.de</a></div>
-                    <div class="contact-detail">📞 0821 6500-6500</div>
-                </div>
-                
-                <a href="https://www.sw-augsburg.de" target="_blank" class="website-link">🌐 Website besuchen</a>
-            </div>
-            
-            <!-- Stadtwerke München -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="company-name">Stadtwerke München</div>
-                    <div class="location">📍 München, Bayern</div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-label">Services</div>
-                    <div class="services">
-                        <span class="service-badge">⚡ Strom</span>
-                        <span class="service-badge">🔥 Gas</span>
-                        <span class="service-badge">💧 Wasser</span>
-                        <span class="service-badge">🌡️ Fernwärme</span>
-                        <span class="service-badge">🚌 ÖPNV</span>
-                        <span class="service-badge">🌐 Breitband</span>
-                        <span class="service-badge">🏊 Bäder</span>
-                    </div>
-                </div>
-                
-                <div class="contact-box">
-                    <div class="contact-person">Dr. Florian Bieberbach</div>
-                    <div class="contact-role">Geschäftsführer</div>
-                    <div class="contact-detail">📧 <a href="mailto:kundenservice@swm.de">kundenservice@swm.de</a></div>
-                    <div class="contact-detail">📞 089 2361-0</div>
-                </div>
-                
-                <a href="https://www.swm.de" target="_blank" class="website-link">🌐 Website besuchen</a>
-            </div>
-            
-            <!-- Stadtwerke Frankfurt -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="company-name">Stadtwerke Frankfurt</div>
-                    <div class="location">📍 Frankfurt am Main, Hessen</div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-label">Services</div>
-                    <div class="services">
-                        <span class="service-badge">⚡ Strom</span>
-                        <span class="service-badge">🔥 Gas</span>
-                        <span class="service-badge">💧 Wasser</span>
-                        <span class="service-badge">🚌 ÖPNV</span>
-                        <span class="service-badge">🗑️ Entsorgung</span>
-                        <span class="service-badge">🏊 Bäder</span>
-                    </div>
-                </div>
-                
-                <div class="contact-box">
-                    <div class="contact-person">Peter Arnold</div>
-                    <div class="contact-role">Geschäftsführer</div>
-                    <div class="contact-detail">📧 <a href="mailto:info@stadtwerke-frankfurt.de">info@stadtwerke-frankfurt.de</a></div>
-                    <div class="contact-detail">📞 069 213-0</div>
-                </div>
-                
-                <a href="http://www.stadtwerke-frankfurt.de" target="_blank" class="website-link">🌐 Website besuchen</a>
-            </div>
-            
-            <!-- Stadtwerke Heidelberg -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="company-name">Stadtwerke Heidelberg</div>
-                    <div class="location">📍 Heidelberg, Baden-Württemberg</div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-label">Services</div>
-                    <div class="services">
-                        <span class="service-badge">⚡ Strom</span>
-                        <span class="service-badge">🔥 Gas</span>
-                        <span class="service-badge">💧 Wasser</span>
-                        <span class="service-badge">🌡️ Fernwärme</span>
-                        <span class="service-badge">🌐 Breitband</span>
-                        <span class="service-badge">🏊 Bäder</span>
-                    </div>
-                </div>
-                
-                <div class="contact-box">
-                    <div class="contact-person">Rudolf Irmscher</div>
-                    <div class="contact-role">Geschäftsführer</div>
-                    <div class="contact-detail">📧 <a href="mailto:info@swhd.de">info@swhd.de</a></div>
-                    <div class="contact-detail">📞 06221 513-0</div>
-                </div>
-                
-                <a href="https://www.swhd.de" target="_blank" class="website-link">🌐 Website besuchen</a>
-            </div>
-        </div>
-        
-        <div id="table-view" class="table-view hidden">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Unternehmen</th>
-                        <th>Stadt</th>
-                        <th>Bundesland</th>
-                        <th>Kontaktperson</th>
-                        <th>Rolle</th>
-                        <th>E-Mail</th>
-                        <th>Telefon</th>
-                        <th>Website</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Stadtwerke Aachen</strong></td>
-                        <td>Aachen</td>
-                        <td>-</td>
-                        <td>Christian Becker</td>
-                        <td>Geschäftsführer</td>
-                        <td><a href="mailto:kundenservice@stawag.de">kundenservice@stawag.de</a></td>
-                        <td>0241 181-1222</td>
-                        <td><a href="https://www.stawag.de" target="_blank">stawag.de</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Stadtwerke Augsburg</strong></td>
-                        <td>Augsburg</td>
-                        <td>-</td>
-                        <td>Rainer Nauerz</td>
-                        <td>Geschäftsführer</td>
-                        <td><a href="mailto:kundenservice@sw-augsburg.de">kundenservice@sw-augsburg.de</a></td>
-                        <td>0821 6500-6500</td>
-                        <td><a href="https://www.sw-augsburg.de" target="_blank">sw-augsburg.de</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Stadtwerke München</strong></td>
-                        <td>München</td>
-                        <td>Bayern</td>
-                        <td>Dr. Florian Bieberbach</td>
-                        <td>Geschäftsführer</td>
-                        <td><a href="mailto:kundenservice@swm.de">kundenservice@swm.de</a></td>
-                        <td>089 2361-0</td>
-                        <td><a href="https://www.swm.de" target="_blank">swm.de</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Stadtwerke Frankfurt</strong></td>
-                        <td>Frankfurt am Main</td>
-                        <td>Hessen</td>
-                        <td>Peter Arnold</td>
-                        <td>Geschäftsführer</td>
-                        <td><a href="mailto:info@stadtwerke-frankfurt.de">info@stadtwerke-frankfurt.de</a></td>
-                        <td>069 213-0</td>
-                        <td><a href="http://www.stadtwerke-frankfurt.de" target="_blank">stadtwerke-frankfurt.de</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Stadtwerke Heidelberg</strong></td>
-                        <td>Heidelberg</td>
-                        <td>Baden-Württemberg</td>
-                        <td>Rudolf Irmscher</td>
-                        <td>Geschäftsführer</td>
-                        <td><a href="mailto:info@swhd.de">info@swhd.de</a></td>
-                        <td>06221 513-0</td>
-                        <td><a href="https://www.swhd.de" target="_blank">swhd.de</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div id="cardView" class="card-grid"></div>
+        <div id="tableView" class="table-container hidden"></div>
     </div>
     
     <script>
-        function showView(view) {
-            const cardsView = document.getElementById('cards-view');
-            const tableView = document.getElementById('table-view');
-            const buttons = document.querySelectorAll('.toggle-btn');
+        let data = [];
+        
+        async function loadData() {
+            const response = await fetch('data.csv');
+            const csvText = await response.text();
             
-            if (view === 'cards') {
-                cardsView.classList.remove('hidden');
-                tableView.classList.add('hidden');
-                buttons[0].classList.add('active');
-                buttons[1].classList.remove('active');
-            } else {
-                cardsView.classList.add('hidden');
-                tableView.classList.remove('hidden');
-                buttons[0].classList.remove('active');
-                buttons[1].classList.add('active');
-            }
+            const lines = csvText.trim().split('\n');
+            const headers = lines[0].split(',');
+            
+            data = lines.slice(1).map(line => {
+                const values = line.split(',');
+                const entry = {};
+                headers.forEach((header, index) => {
+                    entry[header] = values[index];
+                });
+                return entry;
+            });
+            
+            renderCardView();
+            renderTableView();
         }
+        
+        function renderCardView() {
+            const container = document.getElementById('cardView');
+            container.innerHTML = data.map(entry => `
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">${entry.Name}</h2>
+                        <span class="card-type">${entry.Typ}</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Adresse</span>
+                        <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Telefon</span>
+                        <div class="card-value"><a href="tel:${entry.Telefon}">${entry.Telefon}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Email</span>
+                        <div class="card-value"><a href="mailto:${entry.Email}">${entry.Email}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Website</span>
+                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Geschäftsführer</span>
+                        <div class="card-value">${entry.Geschäftsführer}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderTableView() {
+            const container = document.getElementById('tableView');
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Typ</th>
+                            <th>Stadt</th>
+                            <th>Telefon</th>
+                            <th>Email</th>
+                            <th>Website</th>
+                            <th>Geschäftsführer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.map(entry => `
+                            <tr>
+                                <td><strong>${entry.Name}</strong></td>
+                                <td><span class="type-badge">${entry.Typ}</span></td>
+                                <td>${entry.PLZ} ${entry.Stadt}</td>
+                                <td><a href="tel:${entry.Telefon}">${entry.Telefon}</a></td>
+                                <td><a href="mailto:${entry.Email}">${entry.Email}</a></td>
+                                <td><a href="${entry.Website}" target="_blank">${entry.Website.replace('https://www.', '')}</a></td>
+                                <td>${entry.Geschäftsführer}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        // View Switcher
+        document.getElementById('cardViewBtn').addEventListener('click', () => {
+            document.getElementById('cardView').classList.remove('hidden');
+            document.getElementById('tableView').classList.add('hidden');
+            document.getElementById('cardViewBtn').classList.add('active');
+            document.getElementById('tableViewBtn').classList.remove('active');
+        });
+        
+        document.getElementById('tableViewBtn').addEventListener('click', () => {
+            document.getElementById('cardView').classList.add('hidden');
+            document.getElementById('tableView').classList.remove('hidden');
+            document.getElementById('cardViewBtn').classList.remove('active');
+            document.getElementById('tableViewBtn').classList.add('active');
+        });
+        
+        // CSV Download
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            window.location.href = 'data.csv';
+        });
+        
+        // Load data on page load
+        loadData();
     </script>
 </body>
 </html>

@@ -1,6 +1,11 @@
-Name,Stadt,Bundesland,Website,Services,Kontakt_Name,Kontakt_Role,Kontakt_Email,Kontakt_Telefon
-Stadtwerke Aachen,Aachen,,https://www.stawag.de,"strom, gas, wasser, fernwaerme, opnv",Christian Becker,Geschäftsführer,kundenservice@stawag.de,0241 181-1222
-Stadtwerke Augsburg,Augsburg,,https://www.sw-augsburg.de,"strom, gas, wasser, fernwaerme, opnv",Rainer Nauerz,Geschäftsführer,kundenservice@sw-augsburg.de,0821 6500-6500
-Stadtwerke München,München,Bayern,https://www.swm.de,"strom, gas, wasser, fernwaerme, opnv, breitband, baeder",Dr. Florian Bieberbach,Geschäftsführer,kundenservice@swm.de,089 2361-0
-Stadtwerke Frankfurt,Frankfurt am Main,Hessen,http://www.stadtwerke-frankfurt.de,"strom, gas, wasser, opnv, entsorgung, baeder",Peter Arnold,Geschäftsführer,info@stadtwerke-frankfurt.de,069 213-0
-Stadtwerke Heidelberg,Heidelberg,Baden-Württemberg,https://www.swhd.de,"strom, gas, wasser, fernwaerme, breitband, baeder",Rudolf Irmscher,Geschäftsführer,info@swhd.de,06221 513-0
+Name,Typ,Straße,PLZ,Stadt,Telefon,Email,Website,Geschäftsführer
+Stadtwerke Aachen,Stadtwerke,Lombardenstraße 12-22,52070,Aachen,+49 241 181-0,info@stawag.de,https://www.stawag.de,Dr. Christian Becker
+Stadtwerke Augsburg,Stadtwerke,Hoher Weg 1,86152,Augsburg,+49 821 6500-0,kontakt@sw-augsburg.de,https://www.sw-augsburg.de,Alfred Müllner
+Stadtwerke München,Stadtwerke,Emmy-Noether-Straße 2,80287,München,+49 89 2361-0,privatkunden@swm.de,https://www.swm.de,Dr. Florian Bieberbach
+Stadtwerke Frankfurt,Stadtwerke,Solmsstraße 38,60486,Frankfurt,+49 69 213-0,info@mainova.de,https://www.mainova.de,Diana Rauhut
+Stadtwerke Heidelberg,Stadtwerke,Kurfürsten-Anlage 42-50,69115,Heidelberg,+49 6221 513-0,info@swhd.de,https://www.swhd.de,Michael Teigeler
+Stadt Mannheim,Kommune,Rathaus E5,68159,Mannheim,+49 621 293-0,buergerservice@mannheim.de,https://www.mannheim.de,Dr. Peter Kurz
+Stadt Karlsruhe,Kommune,Marktplatz 1,76124,Karlsruhe,+49 721 133-0,info@karlsruhe.de,https://www.karlsruhe.de,Dr. Frank Mentrup
+Stadt Freiburg,Kommune,Rathausplatz 2-4,79098,Freiburg,+49 761 201-0,stadtverwaltung@stadt.freiburg.de,https://www.freiburg.de,Martin Horn
+Stadt Ulm,Kommune,Münsterplatz 50,89073,Ulm,+49 731 161-0,post@ulm.de,https://www.ulm.de,Gunter Czisch
+Stadt Heilbronn,Kommune,Marktplatz 7,74072,Heilbronn,+49 7131 56-0,info@heilbronn.de,https://www.heilbronn.de,Harry Mergel
