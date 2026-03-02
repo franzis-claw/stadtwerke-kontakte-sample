@@ -71,12 +71,34 @@
             color: white;
         }
         
+        /* Section Headers */
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #000;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .section-count {
+            font-size: 1rem;
+            color: #666;
+            margin-left: 12px;
+        }
+        
         /* Card View */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 24px;
-            margin-bottom: 40px;
         }
         
         .card {
@@ -151,6 +173,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
         }
         
         table {
@@ -212,6 +235,10 @@
                 font-size: 2rem;
             }
             
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
             .card-grid {
                 grid-template-columns: 1fr;
             }
@@ -247,12 +274,42 @@
             <button class="btn" id="downloadBtn">CSV Download</button>
         </div>
         
-        <div id="cardView" class="card-grid"></div>
-        <div id="tableView" class="table-container hidden"></div>
+        <div id="cardView">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Stadtwerke <span class="section-count" id="stadtwerkeCount"></span></h2>
+                </div>
+                <div class="card-grid" id="stadtwerkeCards"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Kommunen <span class="section-count" id="kommunenCount"></span></h2>
+                </div>
+                <div class="card-grid" id="kommunenCards"></div>
+            </div>
+        </div>
+        
+        <div id="tableView" class="hidden">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Stadtwerke <span class="section-count" id="stadtwerkeCountTable"></span></h2>
+                </div>
+                <div class="table-container" id="stadtwerkeTable"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Kommunen <span class="section-count" id="kommunenCountTable"></span></h2>
+                </div>
+                <div class="table-container" id="kommunenTable"></div>
+            </div>
+        </div>
     </div>
     
     <script>
-        let data = [];
+        let stadtwerke = [];
+        let kommunen = [];
         
         async function loadData() {
             const response = await fetch('data.csv');
@@ -261,7 +318,7 @@
             const lines = csvText.trim().split('\n');
             const headers = lines[0].split(',');
             
-            data = lines.slice(1).map(line => {
+            const allData = lines.slice(1).map(line => {
                 const values = line.split(',');
                 const entry = {};
                 headers.forEach((header, index) => {
@@ -270,17 +327,51 @@
                 return entry;
             });
             
+            // Separate by type
+            stadtwerke = allData.filter(e => e.Typ === 'Stadtwerke');
+            kommunen = allData.filter(e => e.Typ === 'Kommune');
+            
             renderCardView();
             renderTableView();
         }
         
         function renderCardView() {
-            const container = document.getElementById('cardView');
-            container.innerHTML = data.map(entry => `
+            // Stadtwerke cards
+            document.getElementById('stadtwerkeCount').textContent = `(${stadtwerke.length})`;
+            document.getElementById('stadtwerkeCards').innerHTML = stadtwerke.map(entry => `
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">${entry.Name}</h2>
-                        <span class="card-type">${entry.Typ}</span>
+                        <h3 class="card-title">${entry.Name}</h3>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Adresse</span>
+                        <div class="card-value">${entry.Straße}<br>${entry.PLZ} ${entry.Stadt}</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Telefon</span>
+                        <div class="card-value"><a href="tel:${entry.Telefon}">${entry.Telefon}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Email</span>
+                        <div class="card-value"><a href="mailto:${entry.Email}">${entry.Email}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Website</span>
+                        <div class="card-value"><a href="${entry.Website}" target="_blank">${entry.Website}</a></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Geschäftsführer</span>
+                        <div class="card-value">${entry.Geschäftsführer}</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Kommunen cards
+            document.getElementById('kommunenCount').textContent = `(${kommunen.length})`;
+            document.getElementById('kommunenCards').innerHTML = kommunen.map(entry => `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">${entry.Name}</h3>
                     </div>
                     <div class="card-info">
                         <span class="card-label">Adresse</span>
@@ -307,13 +398,21 @@
         }
         
         function renderTableView() {
-            const container = document.getElementById('tableView');
-            container.innerHTML = `
+            // Stadtwerke table
+            document.getElementById('stadtwerkeCountTable').textContent = `(${stadtwerke.length})`;
+            document.getElementById('stadtwerkeTable').innerHTML = createTable(stadtwerke);
+            
+            // Kommunen table
+            document.getElementById('kommunenCountTable').textContent = `(${kommunen.length})`;
+            document.getElementById('kommunenTable').innerHTML = createTable(kommunen);
+        }
+        
+        function createTable(data) {
+            return `
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Typ</th>
                             <th>Stadt</th>
                             <th>Telefon</th>
                             <th>Email</th>
@@ -325,7 +424,6 @@
                         ${data.map(entry => `
                             <tr>
                                 <td><strong>${entry.Name}</strong></td>
-                                <td><span class="type-badge">${entry.Typ}</span></td>
                                 <td>${entry.PLZ} ${entry.Stadt}</td>
                                 <td><a href="tel:${entry.Telefon}">${entry.Telefon}</a></td>
                                 <td><a href="mailto:${entry.Email}">${entry.Email}</a></td>
